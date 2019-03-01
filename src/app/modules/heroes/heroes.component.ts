@@ -14,10 +14,23 @@ export class HeroesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    this.loadData();
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  doDelete(hero: Hero) {
+    this.heroService.deleteHero(hero).subscribe({
+      complete: () => {
+        this.selectedHero = null;
+        this.loadData();
+      }
+    });
+  }
+
+  private loadData() {
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 }

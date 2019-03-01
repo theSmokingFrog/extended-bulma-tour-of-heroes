@@ -16,12 +16,26 @@ export class HeroService {
   }
 
   public getHeroes(): Observable<Hero[]> {
-    return this.http.get(`${this.uriPrefix}`).pipe(tap(() => this.log('HeroService: fetched heroes')), map(data => data as Hero[]));
+    return this.http.get(`${this.uriPrefix}`).pipe(tap(() => this.log('HeroService: Fetched Heroes')), map(data => data as Hero[]));
   }
 
   public getHero(id: number): Observable<Hero> {
     return this.http.get(`${this.uriPrefix}/${id}`)
-               .pipe(tap(() => this.log(`HeroService: fetched hero id=${id}`)), map(data => data as Hero));
+               .pipe(tap(() => this.log(`HeroService: Fetched Hero - ID=${id}`)), map(data => data as Hero));
+  }
+
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(`${this.uriPrefix}`, hero).pipe(tap(() => this.log(`HeroService: Updated Hero - ID=${hero.id}`)));
+  }
+
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(`${this.uriPrefix}`, hero)
+               .pipe(tap((newHero: Hero) => this.log(`HeroService: Added Hero w/ ID=${newHero.id}`)));
+  }
+
+  deleteHero(toDelete: Hero | number): Observable<Hero> {
+    const id = typeof toDelete === 'number' ? toDelete : toDelete.id;
+    return this.http.delete<Hero>(`${this.uriPrefix}/${id}`).pipe(tap(() => this.log(`HeroService: Deleted Hero - ID=${id}`)));
   }
 
   private log(message: string): void {
