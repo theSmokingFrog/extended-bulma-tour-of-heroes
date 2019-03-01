@@ -1,0 +1,28 @@
+<section class="section">
+    <div class="container">
+        <h2 class="title">Dashboard</h2>
+        <div class="columns">
+            <ng-container *ngFor="let hero of topHeroes">
+                <div class="column">
+                    <div class="card"
+                         routerLink="/detail/{{hero.id}}">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <img src="https://bulma.io/images/placeholders/96x96.png"
+                                             alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">{{hero.name}}</p>
+                                    <p class="subtitle is-6">@{{hero.name | lowercase}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

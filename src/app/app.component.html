@@ -12,8 +12,15 @@
                 <div id="navbarMenuHeroA"
                      class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item is-active">
-                            Home
+                        <a class="navbar-item"
+                           routerLink="/dashboard"
+                           routerLinkActive="is-active">
+                            Dashboard
+                        </a>
+                        <a class="navbar-item"
+                           routerLink="/heroes"
+                           routerLinkActive="is-active">
+                            Heroes
                         </a>
                     </div>
                 </div>
@@ -29,5 +36,5 @@
         </div>
     </div>
 </section>
-<app-heroes></app-heroes>
+<router-outlet></router-outlet>
 <app-messages></app-messages>
