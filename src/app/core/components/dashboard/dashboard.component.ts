@@ -25,4 +25,9 @@ export class DashboardComponent implements OnInit {
   search(value: string) {
     this.searchTerms.next(value);
   }
+
+  clearSearch(input: HTMLInputElement) {
+    input.value = '';
+    this.searchTerms.next('');
+  }
 }

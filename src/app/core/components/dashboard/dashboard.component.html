@@ -23,13 +23,20 @@
     </ng-container>
 </div>
 <h4 class="title is-4">{{'dashboard.search'|translate}}</h4>
-<div class="field">
+<div class="field has-addons">
+    <div class="control is-expanded">
+        <p class="control has-icons-left">
+            <input #heroSearch
+                   class="input"
+                   type="text"
+                   placeholder="Search a hero..."
+                   (input)="search(heroSearch.value)">
+            <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
+        </p>
+    </div>
     <div class="control">
-        <input #heroSearch
-               class="input"
-               type="text"
-               placeholder="Primary input"
-               (input)="search(heroSearch.value)">
+        <a class="button"
+           (click)="clearSearch(heroSearch)"><span class="icon"><i class="fas fa-trash-alt"></i></span></a>
     </div>
 </div>
 
