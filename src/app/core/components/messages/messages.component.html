@@ -1,16 +1,14 @@
-<section class="section"
-         *ngIf="messageService.messages.length">
-    <div class="container">
-        <h2 class="title">Messages</h2>
-        <div class="field">
-            <div class="control">
-                <button class="button"
-                        (click)="messageService.clear()">Clear
-                </button>
-            </div>
-        </div>
-        <div class="content is-small">
-            <blockquote *ngFor="let message of messageService.messages">{{message}}</blockquote>
-        </div>
+<h2 class="title">Messages</h2>
+<div class="field">
+    <div class="control">
+        <button class="button is-fullwidth is-small"
+                (click)="messageService.clear()"
+                [disabled]="messageService.messages.length === 0"><span class="icon"><i class="fas fa-trash"></i></span>
+        </button>
     </div>
-</section>
+</div>
+<ng-container *ngIf="messageService.messages.length">
+    <div class="content is-small">
+        <blockquote *ngFor="let message of messageService.messages">{{message}}</blockquote>
+    </div>
+</ng-container>

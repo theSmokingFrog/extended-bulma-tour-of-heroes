@@ -1,49 +1,38 @@
-<section class="section">
-    <div class="container">
-        <h2 class="title">My Heroes</h2>
-        <div class="field has-addons">
-            <div class="control is-expanded">
-                <p class="control has-icons-left">
-                    <input #heroInput
-                           class="input"
-                           type="text"
-                           placeholder="Add a hero...">
-                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-                </p>
-            </div>
-            <div class="control">
-                <a class="button"
-                   (click)="addHero(heroInput)">
-                    Add
+<h2 class="title">My Heroes</h2>
+<div class="field has-addons">
+    <div class="control is-expanded">
+        <p class="control has-icons-left">
+            <input #heroInput
+                   class="input"
+                   type="text"
+                   placeholder="Add a hero...">
+            <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+        </p>
+    </div>
+    <div class="control">
+        <a class="button"
+           (click)="addHero(heroInput)">
+            Add
+        </a>
+    </div>
+</div>
+<div class="field is-grouped is-grouped-multiline">
+    <ng-container *ngFor="let hero of heroes">
+        <div class="control">
+            <div class="tags are-medium has-addons">
+                <span class="tag is-dark">{{hero.id}}</span>
+                <a class="tag"
+                   (click)="onSelect(hero)"
+                   [class.is-primary]="selectedHero === hero">{{hero.name}}
                 </a>
+                <a class="tag is-delete"
+                   (click)="doDelete(hero)"
+                   [class.is-primary]="selectedHero === hero"></a>
             </div>
         </div>
-        <div class="field is-grouped is-grouped-multiline">
-            <ng-container *ngFor="let hero of heroes">
-                <div class="control">
-                    <div class="tags are-medium has-addons">
-                        <span class="tag is-dark">{{hero.id}}</span>
-                        <a class="tag"
-                           (click)="onSelect(hero)"
-                           [class.is-info]="selectedHero === hero">{{hero.name}}
-                        </a>
-                        <a class="tag is-delete"
-                           (click)="doDelete(hero)"
-                           [class.is-info]="selectedHero === hero"></a>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
-    </div>
-</section>
-<section class="hero is-primary"
-         *ngIf="selectedHero">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">My Hero is {{selectedHero.name}}</h1>
-            <button class="button is-primary is-inverted is-outlined is-fullwidth"
-                    routerLink="/heroes/{{selectedHero.id}}">MEET HIM
-            </button>
-        </div>
-    </div>
-</section>
+    </ng-container>
+</div>
+<button *ngIf="selectedHero"
+        class="button is-primary is-outlined is-fullwidth"
+        routerLink="/heroes/{{selectedHero.id}}">View records of '{{selectedHero.name}}'
+</button>

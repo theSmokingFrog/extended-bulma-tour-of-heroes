@@ -6,11 +6,13 @@ import { DashboardComponent } from '@app/core/components/dashboard/dashboard.com
 import { HeaderComponent } from '@app/core/components/header/header.component';
 import { MessagesComponent } from '@app/core/components/messages/messages.component';
 import { HttpHeaderInterceptor } from '@app/core/interceptors';
+import { FooterComponent } from './components/footer/footer.component';
 
 const components = [
   DashboardComponent,
   MessagesComponent,
-  HeaderComponent
+  HeaderComponent,
+  FooterComponent
 ];
 
 @NgModule({

@@ -1,3 +1,14 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <app-messages></app-messages>
+            </div>
+            <div class="column">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

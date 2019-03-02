@@ -1,40 +1,37 @@
-<section class="section"
-         *ngIf="hero">
-    <div class="container">
-        <h2 class="title">{{hero.name | uppercase}} Details</h2>
+<ng-container *ngIf="hero">
+    <h2 class="title">{{hero.name | uppercase}} Details</h2>
 
-        <div class="field">
-            <label class="label">Id:</label>
-            <div class="control">
-                <input class="input is-static"
-                       type="text"
-                       value="{{hero.id}}"
-                       readonly>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input class="input"
-                       type="text"
-                       [(ngModel)]="hero.name"
-                       placeholder="name">
-            </div>
-            <p class="help">You can alter the name of a hero!</p>
-        </div>
-
-        <div class="columns">
-            <div class="column">
-                <button class="button is-fullwidth"
-                        (click)="goBack()">BACK
-                </button>
-            </div>
-            <div class="column">
-                <button class="button is-fullwidth"
-                        (click)="doSave()">SAVE
-                </button>
-            </div>
+    <div class="field">
+        <label class="label">Id:</label>
+        <div class="control">
+            <input class="input is-static"
+                   type="text"
+                   value="{{hero.id}}"
+                   readonly>
         </div>
     </div>
-</section>
+
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input"
+                   type="text"
+                   [(ngModel)]="hero.name"
+                   placeholder="name">
+        </div>
+        <p class="help">You can alter the name of a hero!</p>
+    </div>
+
+    <div class="columns">
+        <div class="column">
+            <button class="button is-fullwidth"
+                    (click)="goBack()">BACK
+            </button>
+        </div>
+        <div class="column">
+            <button class="button is-fullwidth"
+                    (click)="doSave()">SAVE
+            </button>
+        </div>
+    </div>
+</ng-container>
