@@ -12,12 +12,34 @@
                 <div id="navbarMenuHeroA"
                      class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item"
-                           routerLink="/dashboard"
-                           routerLinkActive="is-active">{{'header.links.dashboard' | translate}}</a>
-                        <a class="navbar-item"
-                           routerLink="/heroes"
-                           routerLinkActive="is-active">{{'header.links.heroes' | translate}}</a>
+                        <div class="navbar-item">
+                            <div class="dropdown"
+                                 [class.is-active]="languageDropdownActive">
+                                <div class="dropdown-trigger">
+                                    <button class="button"
+                                            aria-haspopup="true"
+                                            aria-controls="dropdown-menu2"
+                                            (click)="toggleDropdown()">
+                                        <span class="icon">
+                                            <i class="fas fa-lg fa-globe-europe"></i>
+                                        </span>{{getLangTranslation(translate.currentLang)}}
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down"
+                                               aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="dropdown-menu"
+                                     id="dropdown-menu2"
+                                     role="menu">
+                                    <div class="dropdown-content">
+                                        <a class="dropdown-item"
+                                           *ngFor="let lang of languages"
+                                           (click)="useLanguage(lang)">{{lang.translationKey | translate}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,5 +52,22 @@
             <h1 class="title">{{'header.title' | translate}}</h1>
             <h2 class="subtitle">{{'header.subtitle' | translate}}</h2>
         </div>
+    </div>
+
+    <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+                <ul>
+                    <li routerLink="/dashboard"
+                        routerLinkActive="is-active">
+                        <a>{{'header.links.dashboard' | translate}}</a>
+                    </li>
+                    <li routerLink="/heroes"
+                        routerLinkActive="is-active">
+                        <a>{{'header.links.heroes' | translate}}</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
 </section>
