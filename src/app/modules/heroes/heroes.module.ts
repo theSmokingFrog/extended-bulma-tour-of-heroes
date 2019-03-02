@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroDetailComponent } from './pages/hero-detail/hero-detail.component';
-import { HeroesOverviewComponent } from './pages/heroes-overview/heroes-overview.component';
 import { FormsModule } from '@angular/forms';
-import { HeroesRoutingModule } from './heroes-routing.module';
+import { HeroesOverviewComponent } from '@app/modules/heroes/pages/heroes-overview/heroes-overview.component';
+import { HeroDetailComponent } from '@app/modules/heroes/pages/hero-detail/hero-detail.component';
+import { HeroesRoutingModule } from '@app/modules/heroes/heroes-routing.module';
 
 @NgModule({
   declarations: [

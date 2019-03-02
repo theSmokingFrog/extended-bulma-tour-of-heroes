@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Hero } from '../../../../core/models/hero.model';
-import { HeroService } from '../../../../core/services/hero.service';
-import { MessageService } from '../../../../core/services/message.service';
+import { Hero } from '@app/core/models';
+import { HeroService, MessageService } from '@app/core/services';
 
 @Component({
   templateUrl: './hero-detail.component.html', styleUrls: ['./hero-detail.component.scss']
