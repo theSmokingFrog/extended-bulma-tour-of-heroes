@@ -24,5 +24,27 @@
                 </div>
             </ng-container>
         </div>
+        <h4 class="title is-4">Hero Search</h4>
+        <div class="field">
+            <div class="control">
+                <input #heroSearch
+                       class="input"
+                       type="text"
+                       placeholder="Primary input"
+                       (input)="search(heroSearch.value)">
+            </div>
+        </div>
+
+        <div class="field is-grouped is-grouped-multiline">
+            <ng-container *ngFor="let hero of heroes$ | async">
+                <div class="control">
+                    <div class="tags are-medium has-addons">
+                        <span class="tag is-dark">{{hero.id}}</span>
+                        <a class="tag"
+                           routerLink="/heroes/{{hero.id}}">{{hero.name}}</a>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
     </div>
 </section>

@@ -23,13 +23,13 @@
                 <div class="control">
                     <div class="tags are-medium has-addons">
                         <span class="tag is-dark">{{hero.id}}</span>
-                        <span class="tag"
-                              (click)="onSelect(hero)"
-                              [class.is-info]="selectedHero === hero">{{hero.name}}
-                        </span>
-                        <span class="tag is-delete"
-                              (click)="doDelete(hero)"
-                              [class.is-info]="selectedHero === hero"></span>
+                        <a class="tag"
+                           (click)="onSelect(hero)"
+                           [class.is-info]="selectedHero === hero">{{hero.name}}
+                        </a>
+                        <a class="tag is-delete"
+                           (click)="doDelete(hero)"
+                           [class.is-info]="selectedHero === hero"></a>
                     </div>
                 </div>
             </ng-container>
