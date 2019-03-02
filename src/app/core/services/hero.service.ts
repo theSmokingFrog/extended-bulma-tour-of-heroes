@@ -24,18 +24,23 @@ export class HeroService {
                .pipe(tap(() => this.log(`HeroService: Fetched Hero - ID=${id}`)), map(data => data as Hero));
   }
 
-  updateHero(hero: Hero): Observable<any> {
-    return this.http.put(`${this.uriPrefix}`, hero).pipe(tap(() => this.log(`HeroService: Updated Hero - ID=${hero.id}`)));
+  public updateHero(hero: Hero): Observable<any> {
+    return this.http.put(`${this.uriPrefix}/${hero.id}`, hero).pipe(tap(() => this.log(`HeroService: Updated Hero - ID=${hero.id}`)));
   }
 
-  addHero(hero: Hero): Observable<Hero> {
+  public addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(`${this.uriPrefix}`, hero)
                .pipe(tap((newHero: Hero) => this.log(`HeroService: Added Hero w/ ID=${newHero.id}`)));
   }
 
-  deleteHero(toDelete: Hero | number): Observable<Hero> {
+  public deleteHero(toDelete: Hero | number): Observable<Hero> {
     const id = typeof toDelete === 'number' ? toDelete : toDelete.id;
     return this.http.delete<Hero>(`${this.uriPrefix}/${id}`).pipe(tap(() => this.log(`HeroService: Deleted Hero - ID=${id}`)));
+  }
+
+  public containsSearchByName(name: string): Observable<Hero[]> {
+    return this.http.get(`${this.uriPrefix}?name_like=${name}`)
+               .pipe(tap(() => this.log(`HeroService: Searching for Heroes with '${name}'`)), map(data => data as Hero[]));
   }
 
   private log(message: string): void {

@@ -24,8 +24,17 @@
             <p class="help">You can alter the name of a hero!</p>
         </div>
 
-        <button class="button is-fullwidth"
-                (click)="goBack()">BACK
-        </button>
+        <div class="columns">
+            <div class="column">
+                <button class="button is-fullwidth"
+                        (click)="goBack()">BACK
+                </button>
+            </div>
+            <div class="column">
+                <button class="button is-fullwidth"
+                        (click)="doSave()">SAVE
+                </button>
+            </div>
+        </div>
     </div>
 </section>
