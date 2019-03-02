@@ -1,8 +1,9 @@
 <ng-container *ngIf="hero">
-    <h2 class="title">{{hero.name | uppercase}} Details</h2>
+    <h2 class="title">{{'heroes.details.title'|translate}}</h2>
+    <h2 class="subtitle">{{hero.name | uppercase}}</h2>
 
     <div class="field">
-        <label class="label">Id:</label>
+        <label class="label">{{'heroes.details.labels.id'|translate}}:</label>
         <div class="control">
             <input class="input is-static"
                    type="text"
@@ -12,25 +13,25 @@
     </div>
 
     <div class="field">
-        <label class="label">Name</label>
+        <label class="label">{{'heroes.details.labels.name'|translate}}:</label>
         <div class="control">
             <input class="input"
                    type="text"
                    [(ngModel)]="hero.name"
                    placeholder="name">
         </div>
-        <p class="help">You can alter the name of a hero!</p>
+        <p class="help">{{'heroes.details.help.name'|translate}}!</p>
     </div>
 
     <div class="columns">
         <div class="column">
             <button class="button is-fullwidth"
-                    (click)="goBack()">BACK
+                    (click)="goBack()">{{'general.actions.back'|translate}}
             </button>
         </div>
         <div class="column">
             <button class="button is-fullwidth"
-                    (click)="doSave()">SAVE
+                    (click)="doSave()">{{'general.actions.save'|translate}}
             </button>
         </div>
     </div>

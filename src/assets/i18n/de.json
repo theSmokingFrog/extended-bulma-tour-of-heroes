@@ -1,0 +1,46 @@
+{
+  "languages": {
+    "en": "Englisch",
+    "de": "Deutsch"
+  },
+  "header": {
+    "title": "Tour der Helden",
+    "subtitle": "Willkommen im Hauptquartier",
+    "links": {
+      "dashboard": "Übersicht",
+      "heroes": "Helden"
+    }
+  },
+  "messages": {
+    "title": "Nachrichten"
+  },
+  "dashboard": {
+    "title": "Übersicht",
+    "search": "Helden suchen"
+  },
+  "heroes": {
+    "details": {
+      "title": "Heldeneinzelheiten",
+      "labels": {
+        "id": "ID",
+        "name": "Name"
+      },
+      "help": {
+        "name": "Du kannst den Namen eines Helden ändern"
+      }
+    },
+    "overview": {
+      "title": "Meine Helden",
+      "actions": {
+        "view": "Unterlagen von '{{value}}' ansehen"
+      }
+    }
+  },
+  "general": {
+    "actions": {
+      "back": "Zurück",
+      "save": "Speichern",
+      "add": "Hinzufügen"
+    }
+  }
+}

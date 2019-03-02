@@ -7,6 +7,7 @@ import { HeaderComponent } from '@app/core/components/header/header.component';
 import { MessagesComponent } from '@app/core/components/messages/messages.component';
 import { HttpHeaderInterceptor } from '@app/core/interceptors';
 import { FooterComponent } from './components/footer/footer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 const components = [
   DashboardComponent,
@@ -19,7 +20,8 @@ const components = [
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ], declarations: [
     ...components
   ], exports: [

@@ -1,4 +1,4 @@
-<h2 class="title">My Heroes</h2>
+<h2 class="title">{{'heroes.overview.title'|translate}}</h2>
 <div class="field has-addons">
     <div class="control is-expanded">
         <p class="control has-icons-left">
@@ -12,7 +12,7 @@
     <div class="control">
         <a class="button"
            (click)="addHero(heroInput)">
-            Add
+            {{'general.actions.add'|translate}}
         </a>
     </div>
 </div>
@@ -34,5 +34,5 @@
 </div>
 <button *ngIf="selectedHero"
         class="button is-primary is-outlined is-fullwidth"
-        routerLink="/heroes/{{selectedHero.id}}">View records of '{{selectedHero.name}}'
+        routerLink="/heroes/{{selectedHero.id}}">{{viewButtonTitle}}
 </button>

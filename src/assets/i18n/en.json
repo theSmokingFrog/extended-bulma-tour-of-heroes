@@ -1,0 +1,46 @@
+{
+  "languages": {
+    "en": "English",
+    "de": "German"
+  },
+  "header": {
+    "title": "Tour of Heroes",
+    "subtitle": "Welcome to the Headquarter",
+    "links": {
+      "dashboard": "Dashboard",
+      "heroes": "Heroes"
+    }
+  },
+  "messages": {
+    "title": "Messages"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "search": "Hero Search"
+  },
+  "heroes": {
+    "details": {
+      "title": "Hero Details",
+      "labels": {
+        "id": "ID",
+        "name": "Name"
+      },
+      "help": {
+        "name": "You can alter the name of a hero"
+      }
+    },
+    "overview": {
+      "title": "My Heroes",
+      "actions": {
+        "view": "View records of '{{value}}'"
+      }
+    }
+  },
+  "general": {
+    "actions": {
+      "back": "Back",
+      "save": "Save",
+      "add": "Add"
+    }
+  }
+}

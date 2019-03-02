@@ -5,9 +5,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'Tour of Heroes';
-  subtitle = 'Welcome to the Headquarter';
-
   constructor() {
   }
 
