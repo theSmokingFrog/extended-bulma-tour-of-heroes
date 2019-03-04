@@ -11,19 +11,26 @@ import { assetsTranslateLoaderFactory, configureTranslator, DisplayMissingKeyHan
 @NgModule({
   declarations: [
     AppComponent
-  ], imports: [
+  ],
+  imports:      [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CoreModule,
     TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader, useFactory: assetsTranslateLoaderFactory, deps: [HttpClient]
-      }, missingTranslationHandler: {
-        provide: MissingTranslationHandler, useClass: DisplayMissingKeyHandler
+      loader:                    {
+        provide:    TranslateLoader,
+        useFactory: assetsTranslateLoaderFactory,
+        deps:       [HttpClient]
+      },
+      missingTranslationHandler: {
+        provide:  MissingTranslationHandler,
+        useClass: DisplayMissingKeyHandler
       }
     })
-  ], providers: [], bootstrap: [AppComponent]
+  ],
+  providers:    [],
+  bootstrap:    [AppComponent]
 })
 export class AppModule {
   constructor(translate: TranslateService) {

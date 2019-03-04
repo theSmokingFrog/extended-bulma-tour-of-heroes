@@ -5,14 +5,22 @@ import { HeroesOverviewComponent } from '@app/modules/heroes/pages/heroes-overvi
 import { HeroDetailComponent } from '@app/modules/heroes/pages/hero-detail/hero-detail.component';
 
 const routes: Routes = [
-  {path: '', component: HeroesOverviewComponent},
-  {path: ':id', component: HeroDetailComponent}
+  {
+    path:      '',
+    component: HeroesOverviewComponent
+  },
+  {
+    path:      ':id',
+    component: HeroDetailComponent
+  }
 ];
 
 @NgModule({
-  declarations: [], imports: [
+  declarations: [],
+  imports:      [
     CommonModule,
     RouterModule.forChild(routes)
-  ], exports: [RouterModule]
+  ],
+  exports:      [RouterModule]
 })
 export class HeroesRoutingModule {}

@@ -4,7 +4,8 @@ import { HeroService } from '@app/core/services';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  templateUrl: './heroes-overview.component.html', styleUrls: ['./heroes-overview.component.scss']
+  templateUrl: './heroes-overview.component.html',
+  styleUrls:   ['./heroes-overview.component.scss']
 })
 export class HeroesOverviewComponent implements OnInit {
 

@@ -5,13 +5,15 @@ import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-dashboard', templateUrl: './dashboard.component.html', styleUrls: ['./dashboard.component.scss']
+  selector:    'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls:   ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
   public topHeroes: Hero[] = [];
+  public heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
-  private heroes$: Observable<Hero[]>;
 
   constructor(private heroService: HeroService) {
   }

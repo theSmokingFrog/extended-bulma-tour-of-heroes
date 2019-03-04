@@ -17,18 +17,23 @@ const components = [
 ];
 
 @NgModule({
-  imports: [
+  imports:      [
     CommonModule,
     HttpClientModule,
     RouterModule,
     TranslateModule
-  ], declarations: [
+  ],
+  declarations: [
     ...components
-  ], exports: [
+  ],
+  exports:      [
     ...components
-  ], providers: [
+  ],
+  providers:    [
     {
-      provide: HTTP_INTERCEPTORS, useClass: HttpHeaderInterceptor, multi: true
+      provide:  HTTP_INTERCEPTORS,
+      useClass: HttpHeaderInterceptor,
+      multi:    true
     }
   ]
 })

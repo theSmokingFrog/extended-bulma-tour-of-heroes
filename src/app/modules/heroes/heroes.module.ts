@@ -10,7 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
   declarations: [
     HeroesOverviewComponent,
     HeroDetailComponent
-  ], imports: [
+  ],
+  imports:      [
     CommonModule,
     FormsModule,
     HeroesRoutingModule,
