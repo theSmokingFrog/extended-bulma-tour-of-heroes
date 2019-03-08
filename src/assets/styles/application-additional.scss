@@ -1,0 +1,85 @@
+/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+
+/* position */
+.toast-center-center {
+    top:       50%;
+    left:      50%;
+    transform: translate(-50%, -50%);
+}
+
+.toast-top-center {
+    top:   0;
+    right: 0;
+    width: 100%;
+}
+
+.toast-bottom-center {
+    bottom: 0;
+    right:  0;
+    width:  100%;
+}
+
+.toast-top-full-width {
+    top:   0;
+    right: 0;
+    width: 100%;
+}
+
+.toast-bottom-full-width {
+    bottom: 0;
+    right:  0;
+    width:  100%;
+}
+
+.toast-top-left {
+    top:  12px;
+    left: 12px;
+}
+
+.toast-top-right {
+    top:   12px;
+    right: 12px;
+}
+
+.toast-bottom-right {
+    right:  12px;
+    bottom: 12px;
+}
+
+.toast-bottom-left {
+    bottom: 12px;
+    left:   12px;
+}
+
+.toast-container {
+    pointer-events: none;
+    position:       fixed;
+    z-index:        999999;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .message {
+        pointer-events: auto;
+        box-shadow:     0 0 12px hsl(0, 0%, 14%);
+        margin:         0 0 6px;
+        width:          400px;
+        cursor:         pointer;
+        user-select:    none;
+    }
+}
+
+.toast-container.toast-top-center .toast,
+.toast-container.toast-bottom-center .toast {
+    width:        300px;
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+.toast-container.toast-top-full-width .toast,
+.toast-container.toast-bottom-full-width .toast {
+    width:        96%;
+    margin-left:  auto;
+    margin-right: auto;
+}

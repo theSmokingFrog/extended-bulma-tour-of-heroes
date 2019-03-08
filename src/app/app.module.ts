@@ -7,16 +7,24 @@ import { CoreModule } from '@app/core/core.module';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { assetsTranslateLoaderFactory, configureTranslator, DisplayMissingKeyHandler } from '@app/app.translation';
+import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
+import { AppToastComponent } from '@app/app.toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations:    [
+    AppComponent,
+    AppToastComponent
   ],
-  imports:      [
+  entryComponents: [
+    AppToastComponent
+  ],
+  imports:         [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CoreModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader:                    {
         provide:    TranslateLoader,
@@ -27,10 +35,22 @@ import { assetsTranslateLoaderFactory, configureTranslator, DisplayMissingKeyHan
         provide:  MissingTranslationHandler,
         useClass: DisplayMissingKeyHandler
       }
-    })
+    }),
+    ToastrModule.forRoot({
+      timeOut:        4000,
+      autoDismiss:    true,
+      toastComponent: AppToastComponent,
+      iconClasses:    {
+        error:   'is-danger',
+        warning: 'is-warning',
+        info:    'is-info',
+        success: 'is-success'
+      }
+    }),
+    ToastNoAnimationModule
   ],
-  providers:    [],
-  bootstrap:    [AppComponent]
+  providers:       [],
+  bootstrap:       [AppComponent]
 })
 export class AppModule {
   constructor(translate: TranslateService) {

@@ -4,6 +4,7 @@ import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { Hero } from '@app/core/models';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class HeroService {
 
   private readonly URI_PREFIX: string = '/api/heroes';
 
-  constructor(private messageService: MessageService, private http: HttpClient) {
+  constructor(private messageService: MessageService, private http: HttpClient, private toastr: ToastrService) {
   }
 
   public getHeroes(): Observable<Hero[]> {
@@ -45,5 +46,6 @@ export class HeroService {
 
   private log(message: string): void {
     this.messageService.add(message);
+    this.toastr.show(message);
   }
 }
