@@ -1,4 +1,6 @@
 <h2 class="title">{{'dashboard.title'|translate}}</h2>
+
+<!-- TODO: Put this in a component to get the dashboard sleeker -->
 <div class="columns">
     <ng-container *ngFor="let hero of topHeroes">
         <div class="column">
@@ -22,6 +24,22 @@
         </div>
     </ng-container>
 </div>
+
+<!-- TODO: Add MetaData Hero -->
+<!--<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Primary title
+            </h1>
+            <h2 class="subtitle">
+                Primary subtitle
+            </h2>
+        </div>
+    </div>
+</section>-->
+
+<!-- TODO: Component for the search so the dashboard gets more simple -->
 <h4 class="title is-4">{{'dashboard.search'|translate}}</h4>
 <div class="field has-addons">
     <div class="control is-expanded">
