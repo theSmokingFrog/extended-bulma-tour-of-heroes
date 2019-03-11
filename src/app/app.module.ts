@@ -40,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       timeOut:        4000,
       autoDismiss:    true,
       toastComponent: AppToastComponent,
+      maxOpened:      4,
       iconClasses:    {
         error:   'is-danger',
         warning: 'is-warning',
