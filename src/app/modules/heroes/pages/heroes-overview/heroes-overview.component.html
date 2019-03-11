@@ -26,7 +26,7 @@
                    [class.is-primary]="selectedHero === hero">{{hero.name}}
                 </a>
                 <a class="tag is-delete"
-                   (click)="doDelete(hero)"
+                   (click)="doConfirm(hero)"
                    [class.is-primary]="selectedHero === hero"></a>
             </div>
         </div>
@@ -36,3 +36,5 @@
         class="button is-primary is-outlined is-fullwidth"
         routerLink="/heroes/{{selectedHero.id}}">{{viewButtonTitle}}
 </button>
+
+<app-confirm-hero-deletion-modal [(heroToDelete)]="heroToDelete"></app-confirm-hero-deletion-modal>

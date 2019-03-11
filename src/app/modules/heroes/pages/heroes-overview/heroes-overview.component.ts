@@ -11,6 +11,7 @@ export class HeroesOverviewComponent implements OnInit {
 
   public heroes: Hero[] = [];
   public selectedHero: Hero;
+  public heroToDelete: Hero;
 
   public constructor(private heroService: HeroService, private translate: TranslateService) {
   }
@@ -27,13 +28,8 @@ export class HeroesOverviewComponent implements OnInit {
     this.selectedHero = hero;
   }
 
-  public doDelete(hero: Hero) {
-    this.heroService.deleteHero(hero).subscribe({
-      complete: () => {
-        this.selectedHero = null;
-        this.loadData();
-      }
-    });
+  doConfirm(hero: Hero) {
+    this.heroToDelete = hero;
   }
 
   public addHero(heroInput: HTMLInputElement) {

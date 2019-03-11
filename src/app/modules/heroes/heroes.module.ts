@@ -5,11 +5,13 @@ import { HeroesOverviewComponent } from '@app/modules/heroes/pages/heroes-overvi
 import { HeroDetailComponent } from '@app/modules/heroes/pages/hero-detail/hero-detail.component';
 import { HeroesRoutingModule } from '@app/modules/heroes/heroes-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ConfirmHeroDeletionModalComponent } from './components/confirm-hero-deletion-modal/confirm-hero-deletion-modal.component';
 
 @NgModule({
   declarations: [
     HeroesOverviewComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    ConfirmHeroDeletionModalComponent
   ],
   imports:      [
     CommonModule,
