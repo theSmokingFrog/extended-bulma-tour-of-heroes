@@ -34,13 +34,19 @@
       "actions": {
         "view": "Unterlagen von '{{value}}' ansehen"
       }
+    },
+    "deletion": {
+      "header": "Löschen eines Helden bestätigen",
+      "body": "Wollen Sie den Helden '{{heroName}}' mit der ID '{{heroId}}' wirklich löschen?"
     }
   },
   "general": {
     "actions": {
       "back": "Zurück",
       "save": "Speichern",
-      "add": "Hinzufügen"
+      "add": "Hinzufügen",
+      "cancel": "Abbrechen",
+      "delete": "Löschen"
     }
   }
 }

@@ -34,13 +34,19 @@
       "actions": {
         "view": "View records of '{{value}}'"
       }
+    },
+    "deletion": {
+      "header": "Confirm deletion of a hero",
+      "body": "Do you really want to delete the hero '{{heroName}}' with ID '{{heroId}}'?"
     }
   },
   "general": {
     "actions": {
       "back": "Back",
       "save": "Save",
-      "add": "Add"
+      "add": "Add",
+      "cancel": "Cancel",
+      "delete": "Delete"
     }
   }
 }

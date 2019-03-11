@@ -1,24 +1,27 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from '@app/core/models';
 import { HeroService } from '@app/core/services';
+import { HeroDeletionChannel } from '@app/modules/heroes/services/hero-deletion-channel.service';
 
 @Component({
-  selector:    'app-confirm-hero-deletion-modal',
-  templateUrl: './confirm-hero-deletion-modal.component.html',
-  styleUrls:   ['./confirm-hero-deletion-modal.component.scss']
+  selector: 'app-confirm-hero-deletion-modal',
+  templateUrl: './confirm-hero-deletion-modal.component.html', styleUrls: ['./confirm-hero-deletion-modal.component.scss']
 })
-export class ConfirmHeroDeletionModalComponent implements OnInit, OnChanges {
+export class ConfirmHeroDeletionModalComponent implements OnInit {
 
-  @Input() public heroToDelete: Hero = null;
-  @Output() private heroToDeleteChange: EventEmitter<Hero> = new EventEmitter();
+  private heroToDelete: Hero;
 
-  constructor(private heroService: HeroService) {
+  constructor(private heroService: HeroService, private deletionChannel: HeroDeletionChannel) {
   }
 
   ngOnInit() {
+    this.deletionChannel.observable().subscribe({
+      next: hero => this.resolve(hero)
+    });
   }
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  private resolve(hero: Hero) {
+    this.heroToDelete = hero;
   }
 
   public confirm() {
@@ -28,6 +31,12 @@ export class ConfirmHeroDeletionModalComponent implements OnInit, OnChanges {
   }
 
   public reset() {
-    this.heroToDeleteChange.emit(null);
+    this.deletionChannel.clear();
+  }
+
+  public get deletionTranslateParams() {
+    return {
+      heroName: this.heroToDelete.name, heroId: this.heroToDelete.id
+    };
   }
 }

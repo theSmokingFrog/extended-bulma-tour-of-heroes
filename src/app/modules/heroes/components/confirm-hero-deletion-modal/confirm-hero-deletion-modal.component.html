@@ -1,31 +1,32 @@
-<div class="modal"
-     [class.is-active]="heroToDelete != null">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Confirm deletion of Hero</p>
-        </header>
-        <section class="modal-card-body">
-            <p>bli bla blubb!</p>
-        </section>
-        <footer class="modal-card-foot">
-            <nav class="level"
-                 style="width: 100%;">
-                <div class="level-left">
-                    <div class="level-item">
-                        <button class="button"
-                                (click)="reset()">Cancel
-                        </button>
+<ng-container *ngIf="heroToDelete != null">
+    <div class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{'heroes.deletion.header'|translate}}</p>
+            </header>
+            <section class="modal-card-body">
+                <p>{{'heroes.deletion.body'|translate:deletionTranslateParams}}</p>
+            </section>
+            <footer class="modal-card-foot">
+                <nav class="level"
+                     style="width: 100%;">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <button class="button"
+                                    (click)="reset()">{{'general.actions.cancel'|translate}}
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="level-right">
-                    <div class="level-item">
-                        <button class="button is-danger"
-                                (click)="confirm()">Delete Hero
-                        </button>
+                    <div class="level-right">
+                        <div class="level-item">
+                            <button class="button is-danger"
+                                    (click)="confirm()">{{'general.actions.delete'|translate}}
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </footer>
+                </nav>
+            </footer>
+        </div>
     </div>
-</div>
+</ng-container>
