@@ -1,43 +1,48 @@
 <section class="section">
     <div class="container">
-        <h2 class="title">{{'characters.overview.title'|translate}}</h2>
-        <div class="field has-addons">
-            <div class="control is-expanded">
-                <p class="control has-icons-left">
-                    <input #characterInput
-                           class="input"
-                           type="text"
-                           placeholder="Add a hero...">
-                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-                </p>
-            </div>
-            <div class="control">
-                <a class="button"
-                   (click)="addCharacter(characterInput)">
-                    {{'general.actions.add'|translate}}
-                </a>
-            </div>
-        </div>
-        <div class="field is-grouped is-grouped-multiline">
-            <ng-container *ngFor="let character of characters">
-                <div class="control">
-                    <div class="tags are-medium has-addons">
-                        <span class="tag is-dark">{{character.id}}</span>
-                        <a class="tag"
-                           (click)="onSelect(character)"
-                           [class.is-primary]="selectedCharacter === character">{{character.displayname}}
-                        </a>
-                        <a class="tag is-delete"
-                           (click)="triggerDeletion(character)"
-                           [class.is-primary]="selectedCharacter === character"></a>
+        <h2 class="title is-1">{{'characters.overview.title'|translate}}</h2>
+        <ng-container *ngFor="let charByAlignment of charactersByAlignment | keyvalue">
+            <br />
+            <h2 class="title is-3">{{charByAlignment.key}}</h2>
+            <ng-container *ngFor="let character of charByAlignment.value">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img class="is-rounded"
+                                 src="https://randomuser.me/api/portraits/men/{{character.id % 99}}.jpg"
+                                 alt="Placeholder image">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{character.displayname}}</strong>
+                                <small> @{{character.twitterHandle}}</small>
+                                <br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem.
+                                Etiam finibus odio quis feugiat facilisis.
+                            </p>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <button class="button is-fullwidth is-small"
+                                        routerLink="/characters/{{character.id}}">
+                                    <span class="icon has-padding-right"><i class="fas fa-folder"></i></span>
+                                    <b>{{'characters.overview.actions.view' | translate | uppercase}}</b>
+                                </button>
+                            </div>
+                            <div class="column">
+                                <button class="button is-fullwidth is-small"
+                                        (click)="triggerDeletion(character)">
+                                    <span class="icon has-padding-right"><i class="fas fa-save"></i></span>
+                                    <b>{{'general.actions.delete' | translate | uppercase}}</b>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </article>
             </ng-container>
-        </div>
-        <button *ngIf="selectedCharacter"
-                class="button is-primary is-outlined is-fullwidth"
-                routerLink="/characters/{{selectedCharacter.id}}">{{'characters.overview.actions.view' | translate:buttonTitleTranslateParams}}
-        </button>
+        </ng-container>
     </div>
 </section>
 

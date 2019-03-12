@@ -3,6 +3,7 @@ import { CharacterService } from '@app/core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { CharacterDeletionChannel } from '@app/modules/characters/services';
 import { Character } from '@app/core/models';
+import * as _ from 'lodash';
 
 @Component({
   templateUrl: './characters-overview.component.html',
@@ -10,8 +11,8 @@ import { Character } from '@app/core/models';
 })
 export class CharactersOverviewComponent implements OnInit {
 
-  public characters: Character[] = [];
   public selectedCharacter: Character;
+  public charactersByAlignment: Map<string, Character[]> = new Map();
 
   public constructor(private characterService: CharacterService, private translate: TranslateService, private deletionChannel: CharacterDeletionChannel) {
   }
@@ -28,7 +29,7 @@ export class CharactersOverviewComponent implements OnInit {
 
   private loadData() {
     this.characterService.getCharacters()
-        .subscribe(characters => this.characters = characters as Character[]);
+        .subscribe(characters => this.charactersByAlignment = this.mapByAlignment(characters));
   }
 
   public onSelect(character: Character): void {
@@ -49,9 +50,20 @@ export class CharactersOverviewComponent implements OnInit {
     }
   }
 
-  public get buttonTitleTranslateParams() {
-    return {
-      value: this.selectedCharacter.displayname
-    };
+  private mapByAlignment(characters: Character[]): Map<string, Character[]> {
+    const mappedChars: Map<string, Character[]> = new Map();
+    characters.forEach(character => {
+      let listOfCharacters = mappedChars.get(character.alignment);
+      if (!listOfCharacters) {
+        listOfCharacters = [];
+      }
+      listOfCharacters.push(character);
+      mappedChars.set(character.alignment, listOfCharacters);
+    });
+    return mappedChars;
+  }
+
+  private get characters(): Character[] {
+    return _.flatten(Array.from(this.charactersByAlignment.values()));
   }
 }

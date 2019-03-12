@@ -32,7 +32,7 @@
     "overview": {
       "title": "Available Characters",
       "actions": {
-        "view": "View records of '{{value}}'"
+        "view": "View records"
       }
     },
     "deletion": {

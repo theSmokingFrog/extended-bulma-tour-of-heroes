@@ -32,7 +32,7 @@
     "overview": {
       "title": "Verfügbare Charaktere",
       "actions": {
-        "view": "Unterlagen von '{{value}}' ansehen"
+        "view": "Unterlagen ansehen"
       }
     },
     "deletion": {
