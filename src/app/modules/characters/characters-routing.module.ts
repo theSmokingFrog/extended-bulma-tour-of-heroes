@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesOverviewComponent } from '@app/modules/heroes/pages/heroes-overview/heroes-overview.component';
-import { HeroDetailComponent } from '@app/modules/heroes/pages/hero-detail/hero-detail.component';
+import { CharactersOverviewComponent } from '@app/modules/characters/pages/characters-overview/characters-overview.component';
+import { CharacterDetailComponent } from '@app/modules/characters/pages/character-detail/character-detail.component';
 
 const routes: Routes = [
   {
     path:      '',
-    component: HeroesOverviewComponent
+    component: CharactersOverviewComponent
   },
   {
     path:      ':id',
-    component: HeroDetailComponent
+    component: CharacterDetailComponent
   }
 ];
 
@@ -23,4 +23,4 @@ const routes: Routes = [
   ],
   exports:      [RouterModule]
 })
-export class HeroesRoutingModule {}
+export class CharactersRoutingModule {}

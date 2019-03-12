@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path:         'heroes',
-    loadChildren: './modules/heroes/heroes.module#HeroesModule'
+    loadChildren: './modules/characters/characters.module#CharactersModule'
   }
 ];
 

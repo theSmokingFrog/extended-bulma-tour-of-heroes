@@ -6,10 +6,10 @@ import { Character } from '@app/core/models';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  templateUrl: './hero-detail.component.html',
-  styleUrls:   ['./hero-detail.component.scss']
+  templateUrl: './character-detail.component.html',
+  styleUrls:   ['./character-detail.component.scss']
 })
-export class HeroDetailComponent implements OnInit {
+export class CharacterDetailComponent implements OnInit {
   public character: Character;
 
   constructor(private route: ActivatedRoute, private heroService: CharacterService, private location: Location, private router: Router, private toastr: ToastrService) {

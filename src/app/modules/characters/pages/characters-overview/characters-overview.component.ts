@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '@app/core/services';
 import { TranslateService } from '@ngx-translate/core';
-import { CharacterDeletionChannel } from '@app/modules/heroes/services';
+import { CharacterDeletionChannel } from '@app/modules/characters/services';
 import { Character } from '@app/core/models';
 
 @Component({
-  templateUrl: './heroes-overview.component.html', styleUrls: ['./heroes-overview.component.scss']
+  templateUrl: './characters-overview.component.html',
+  styleUrls:   ['./characters-overview.component.scss']
 })
-export class HeroesOverviewComponent implements OnInit {
+export class CharactersOverviewComponent implements OnInit {
 
   public characters: Character[] = [];
   public selectedCharacter: Character;
