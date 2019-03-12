@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '@app/core/models';
-import { HeroService } from '@app/core/services';
+import { CharacterService } from '@app/core/services';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Character } from '@app/core/models';
 
 @Component({
   selector:    'app-dashboard',
@@ -11,17 +11,16 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
 
-  public topHeroes: Hero[] = [];
-  public heroes$: Observable<Hero[]>;
+  public topCharacters: Character[] = [];
+  public character$: Observable<Character[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) {
+  constructor(private characterService: CharacterService) {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe(heroes => this.topHeroes = heroes.slice(1, 5));
-    this.heroes$ = this.searchTerms.pipe(// wait 300ms after each keystroke before considering the term
-      debounceTime(300), distinctUntilChanged(), switchMap((term: string) => this.heroService.containsSearchByName(term)));
+    this.characterService.getCharacters().subscribe(chars => this.topCharacters = chars.slice(1, 5));
+    this.character$ = this.searchTerms.pipe(debounceTime(300), distinctUntilChanged(), switchMap((term: string) => this.characterService.containsSearchByName(term)));
   }
 
   search(value: string) {

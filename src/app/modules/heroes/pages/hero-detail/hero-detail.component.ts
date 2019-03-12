@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Hero } from '@app/core/models';
-import { HeroService, MessageService } from '@app/core/services';
+import { CharacterService } from '@app/core/services';
+import { Character } from '@app/core/models';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: './hero-detail.component.html',
   styleUrls:   ['./hero-detail.component.scss']
 })
 export class HeroDetailComponent implements OnInit {
-  public hero: Hero;
+  public character: Character;
 
-  constructor(private route: ActivatedRoute, private heroService: HeroService, private location: Location, private messageService: MessageService, private router: Router) {
+  constructor(private route: ActivatedRoute, private heroService: CharacterService, private location: Location, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getHero(id)
-        .subscribe(hero => this.hero = hero);
+    this.heroService.getCharacter(id)
+        .subscribe(hero => this.character = hero);
   }
 
   goBack() {
@@ -25,9 +26,9 @@ export class HeroDetailComponent implements OnInit {
   }
 
   doSave() {
-    this.heroService.updateHero(this.hero).subscribe({
+    this.heroService.updateCharacter(this.character).subscribe({
       complete: () => this.router.navigate(['/heroes']),
-      error:    err => this.messageService.add(err.message)
+      error:    err => this.toastr.error(err.message)
     });
   }
 }

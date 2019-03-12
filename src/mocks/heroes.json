@@ -1,36 +1,305 @@
 {
-  "heroes": [
+  "characters": [
+    {
+      "id": 1,
+      "name": "Captain America",
+      "alterEgo": "Steve Rogers",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 2,
+      "name": "The Winter Soldier",
+      "alterEgo": "Bucky Barnes",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 3,
+      "name": "Red Skull",
+      "alterEgo": "Johann Schmidt",
+      "alignment": "Villain",
+      "species": "Human"
+    },
+    {
+      "id": 4,
+      "name": "Blazing Skull",
+      "alterEgo": "Mark Todd",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 5,
+      "name": "",
+      "alterEgo": "Loki Laufeyson",
+      "alignment": "Villain",
+      "species": "Deity"
+    },
+    {
+      "id": 6,
+      "name": "",
+      "alterEgo": "Thor Odinson",
+      "alignment": "Hero",
+      "species": "Deity"
+    },
+    {
+      "id": 7,
+      "name": "Mister Fantastic",
+      "alterEgo": "Reed Richards",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 8,
+      "name": "Invisible Girl",
+      "alterEgo": "Susan Storm",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 9,
+      "name": "The Thing",
+      "alterEgo": "Ben Grimm",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 10,
+      "name": "Human Torch",
+      "alterEgo": "Jonathan Storm",
+      "alignment": "Hero",
+      "species": "Human"
+    },
     {
       "id": 11,
-      "name": "Mr. Niceor"
+      "name": "The Hulk",
+      "alterEgo": "Bruce Banner",
+      "alignment": "Hero",
+      "species": "Human"
     },
     {
       "id": 12,
-      "name": "Narco"
+      "name": "Doctor Doom",
+      "alterEgo": "Victor Von Doom",
+      "alignment": "Villain",
+      "species": "Human"
     },
     {
       "id": 13,
-      "name": "Bombasto"
+      "name": "Spider-Man",
+      "alterEgo": "Peter Parker",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 14,
+      "name": "Iron Man",
+      "alterEgo": "Tony Stark",
+      "alignment": "Hero",
+      "species": "Human"
     },
     {
       "id": 15,
-      "name": "Magneta"
+      "name": "",
+      "alterEgo": "Nick Fury",
+      "alignment": "Hero",
+      "species": "Human"
     },
     {
       "id": 16,
-      "name": "RubberMan"
+      "name": "Doctor Strange",
+      "alterEgo": "Stephen Vincent Strange",
+      "alignment": "Hero",
+      "species": "Human"
     },
     {
       "id": 17,
-      "name": "Dynama"
+      "name": "",
+      "alterEgo": "Charles Xavier",
+      "alignment": "Hero",
+      "species": "Mutant"
+    },
+    {
+      "id": 18,
+      "name": "Magneto",
+      "alterEgo": "Max Eisenhardt",
+      "alignment": "Villain",
+      "species": "Mutant"
     },
     {
       "id": 19,
-      "name": "Magma"
+      "name": "Pheonix",
+      "alterEgo": "Jean Grey",
+      "alignment": "Hero",
+      "species": "Mutant"
     },
     {
       "id": 20,
-      "name": "Tornado"
+      "name": "Beast",
+      "alterEgo": "Hank McCoy",
+      "alignment": "Hero",
+      "species": "Mutant"
+    },
+    {
+      "id": 21,
+      "name": "Cyclops",
+      "alterEgo": "Scott Summers",
+      "alignment": "Hero",
+      "species": "Mutant"
+    },
+    {
+      "id": 22,
+      "name": "Daredevil",
+      "alterEgo": "Matthew Michael Murdock",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 23,
+      "name": "Black Widow",
+      "alterEgo": "Natalia Romanova",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 24,
+      "name": "Green Goblin",
+      "alterEgo": "Norman Osborn",
+      "alignment": "Villain",
+      "species": "Human"
+    },
+    {
+      "id": 25,
+      "name": "Hawkeye",
+      "alterEgo": "Clint Barton",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 26,
+      "name": "Galactus",
+      "alterEgo": "",
+      "alignment": "Villain",
+      "species": "Alien"
+    },
+    {
+      "id": 27,
+      "name": "Black Panther",
+      "alterEgo": "T'Challa",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 28,
+      "name": "Captain Marvel",
+      "alterEgo": "Carol Denvers",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 29,
+      "name": "Falcon",
+      "alterEgo": "Sam Wilson",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 30,
+      "name": "",
+      "alterEgo": "Thanos",
+      "alignment": "Villain",
+      "species": "Titan"
+    },
+    {
+      "id": 31,
+      "name": "The Punisher",
+      "alterEgo": "Frank Castle",
+      "alignment": "Antihero",
+      "species": "Human"
+    },
+    {
+      "id": 32,
+      "name": "Wolverine",
+      "alterEgo": "James 'Logan' Howlett",
+      "alignment": "Hero",
+      "species": "Mutant"
+    },
+    {
+      "id": 33,
+      "name": "Storm",
+      "alterEgo": "Ororo Munroe",
+      "alignment": "Hero",
+      "species": "Mutant"
+    },
+    {
+      "id": 34,
+      "name": "Nightcrawler",
+      "alterEgo": "Kurt Wagner",
+      "alignment": "Hero",
+      "species": "Mutant"
+    },
+    {
+      "id": 35,
+      "name": "Mystique",
+      "alterEgo": "Raven Darkhölme",
+      "alignment": "Antihero",
+      "species": "Mutant"
+    },
+    {
+      "id": 36,
+      "name": "Warmachine",
+      "alterEgo": "Jim Rhodes",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 37,
+      "name": "Antman",
+      "alterEgo": "Scott Lang",
+      "alignment": "Hero",
+      "species": "Human"
+    },
+    {
+      "id": 38,
+      "name": "",
+      "alterEgo": "Rocket Raccoon",
+      "alignment": "Hero",
+      "species": "Alien"
+    },
+    {
+      "id": 39,
+      "name": "Apocalypse",
+      "alterEgo": "En Sabah Nur",
+      "alignment": "Villain",
+      "species": "Mutant"
+    },
+    {
+      "id": 40,
+      "name": "Gambit",
+      "alterEgo": "Remy Etienne LeBeau",
+      "alignment": "Antihero",
+      "species": "Mutant"
+    },
+    {
+      "id": 41,
+      "name": "Deadpool",
+      "alterEgo": "Wade Winston Wilson",
+      "alignment": "Antihero",
+      "species": "Human"
+    },
+    {
+      "id": 42,
+      "name": "Star-Lord",
+      "alterEgo": "Peter Quill",
+      "alignment": "Antihero",
+      "species": "Human"
+    },
+    {
+      "id": 43,
+      "name": "",
+      "alterEgo": "Groot",
+      "alignment": "Hero",
+      "species": "Alien"
     }
   ]
 }

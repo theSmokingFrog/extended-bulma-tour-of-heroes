@@ -6,7 +6,7 @@ import { HeroDetailComponent } from '@app/modules/heroes/pages/hero-detail/hero-
 import { HeroesRoutingModule } from '@app/modules/heroes/heroes-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ConfirmHeroDeletionModalComponent } from './components/confirm-hero-deletion-modal/confirm-hero-deletion-modal.component';
-import { HeroDeletionChannel } from '@app/modules/heroes/services/hero-deletion-channel.service';
+import { CharacterDeletionChannel } from '@app/modules/heroes/services';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { HeroDeletionChannel } from '@app/modules/heroes/services/hero-deletion-
     HeroesRoutingModule,
     TranslateModule.forChild()
   ], providers: [
-    HeroDeletionChannel
+    CharacterDeletionChannel
   ]
 })
 export class HeroesModule {}

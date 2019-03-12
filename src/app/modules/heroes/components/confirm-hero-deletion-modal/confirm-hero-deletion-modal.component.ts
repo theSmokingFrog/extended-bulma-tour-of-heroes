@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '@app/core/models';
-import { HeroService } from '@app/core/services';
-import { HeroDeletionChannel } from '@app/modules/heroes/services/hero-deletion-channel.service';
+import { CharacterService } from '@app/core/services';
+import { CharacterDeletionChannel } from '@app/modules/heroes/services';
+import { Character } from '@app/core/models';
 
 @Component({
-  selector: 'app-confirm-hero-deletion-modal',
-  templateUrl: './confirm-hero-deletion-modal.component.html', styleUrls: ['./confirm-hero-deletion-modal.component.scss']
+  selector:    'app-confirm-hero-deletion-modal',
+  templateUrl: './confirm-hero-deletion-modal.component.html',
+  styleUrls:   ['./confirm-hero-deletion-modal.component.scss']
 })
 export class ConfirmHeroDeletionModalComponent implements OnInit {
 
-  private heroToDelete: Hero;
+  private characterToDelete: Character;
 
-  constructor(private heroService: HeroService, private deletionChannel: HeroDeletionChannel) {
+  constructor(private heroService: CharacterService, private deletionChannel: CharacterDeletionChannel) {
   }
 
   ngOnInit() {
@@ -20,12 +21,12 @@ export class ConfirmHeroDeletionModalComponent implements OnInit {
     });
   }
 
-  private resolve(hero: Hero) {
-    this.heroToDelete = hero;
+  private resolve(character: Character) {
+    this.characterToDelete = character;
   }
 
   public confirm() {
-    this.heroService.deleteHero(this.heroToDelete).subscribe({
+    this.heroService.deleteCharacter(this.characterToDelete).subscribe({
       complete: () => this.reset()
     });
   }
@@ -36,7 +37,8 @@ export class ConfirmHeroDeletionModalComponent implements OnInit {
 
   public get deletionTranslateParams() {
     return {
-      heroName: this.heroToDelete.name, heroId: this.heroToDelete.id
+      heroName: this.characterToDelete.name,
+      heroId:   this.characterToDelete.id
     };
   }
 }

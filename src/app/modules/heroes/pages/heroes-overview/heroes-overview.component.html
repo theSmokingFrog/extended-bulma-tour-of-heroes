@@ -13,30 +13,30 @@
             </div>
             <div class="control">
                 <a class="button"
-                   (click)="addHero(heroInput)">
+                   (click)="addCharacter(heroInput)">
                     {{'general.actions.add'|translate}}
                 </a>
             </div>
         </div>
         <div class="field is-grouped is-grouped-multiline">
-            <ng-container *ngFor="let hero of heroes">
+            <ng-container *ngFor="let hero of characters">
                 <div class="control">
                     <div class="tags are-medium has-addons">
                         <span class="tag is-dark">{{hero.id}}</span>
                         <a class="tag"
                            (click)="onSelect(hero)"
-                           [class.is-primary]="selectedHero === hero">{{hero.name}}
+                           [class.is-primary]="selectedCharacter === hero">{{hero.name}}
                         </a>
                         <a class="tag is-delete"
                            (click)="triggerDeletion(hero)"
-                           [class.is-primary]="selectedHero === hero"></a>
+                           [class.is-primary]="selectedCharacter === hero"></a>
                     </div>
                 </div>
             </ng-container>
         </div>
-        <button *ngIf="selectedHero"
+        <button *ngIf="selectedCharacter"
                 class="button is-primary is-outlined is-fullwidth"
-                routerLink="/heroes/{{selectedHero.id}}">{{viewButtonTitle}}
+                routerLink="/heroes/{{selectedCharacter.id}}">{{viewButtonTitle}}
         </button>
     </div>
 </section>

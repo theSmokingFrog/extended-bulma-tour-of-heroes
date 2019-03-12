@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '@app/core/models';
-import { HeroService } from '@app/core/services';
+import { CharacterService } from '@app/core/services';
 import { TranslateService } from '@ngx-translate/core';
-import { HeroDeletionChannel } from '@app/modules/heroes/services/hero-deletion-channel.service';
+import { CharacterDeletionChannel } from '@app/modules/heroes/services';
+import { Character } from '@app/core/models';
 
 @Component({
   templateUrl: './heroes-overview.component.html', styleUrls: ['./heroes-overview.component.scss']
 })
 export class HeroesOverviewComponent implements OnInit {
 
-  public heroes: Hero[] = [];
-  public selectedHero: Hero;
+  public characters: Character[] = [];
+  public selectedCharacter: Character;
 
-  public constructor(private heroService: HeroService, private translate: TranslateService, private deletionChannel: HeroDeletionChannel) {
+  public constructor(private heroService: CharacterService, private translate: TranslateService, private deletionChannel: CharacterDeletionChannel) {
   }
 
   public ngOnInit() {
@@ -26,27 +26,27 @@ export class HeroesOverviewComponent implements OnInit {
   }
 
   private loadData() {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    this.heroService.getCharacters().subscribe(heroes => this.characters = heroes);
   }
 
-  public onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  public onSelect(hero: Character): void {
+    this.selectedCharacter = hero;
   }
 
-  triggerDeletion(hero: Hero) {
+  triggerDeletion(hero: Character) {
     this.deletionChannel.propagate(hero);
   }
 
-  public addHero(heroInput: HTMLInputElement) {
+  public addCharacter(heroInput: HTMLInputElement) {
     const name = heroInput.value.trim();
     if (name) {
-      this.heroService.addHero({name} as Hero).subscribe({
+      this.heroService.addCharacter({name} as Character).subscribe({
         complete: () => this.loadData()
       });
     }
   }
 
   public get viewButtonTitle(): string {
-    return this.translate.instant('heroes.overview.actions.view', {value: this.selectedHero.name});
+    return this.translate.instant('heroes.overview.actions.view', {value: this.selectedCharacter.name});
   }
 }

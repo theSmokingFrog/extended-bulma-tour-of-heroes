@@ -1,2 +1,2 @@
-export * from './hero.model';
+export * from './character.model';
 export * from './language.model';

@@ -1,8 +1,8 @@
 <section class="section">
     <div class="container">
-        <ng-container *ngIf="hero">
+        <ng-container *ngIf="character">
             <h2 class="title is-5">{{'heroes.details.title'|translate}}</h2>
-            <h2 class="subtitle is-2">{{hero.name | uppercase}}</h2>
+            <h2 class="subtitle is-2">{{character.name | uppercase}}</h2>
 
             <nav class="level">
                 <div class="level-right">
@@ -12,7 +12,7 @@
                             <div class="control">
                                 <input class="input is-static"
                                        type="text"
-                                       value="{{hero.id}}"
+                                       value="{{character.id}}"
                                        readonly>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                     <div class="level-item">
                         <figure class="image is-64x64">
                             <img class="is-rounded"
-                                 src="https://randomuser.me/api/portraits/men/{{hero.id % 99}}.jpg">
+                                 src="https://randomuser.me/api/portraits/men/{{character.id % 99}}.jpg">
                         </figure>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="control">
                     <input class="input"
                            type="text"
-                           [(ngModel)]="hero.name"
+                           [(ngModel)]="character.name"
                            placeholder="name">
                 </div>
                 <p class="help">{{'heroes.details.help.name'|translate}}!</p>
