@@ -13,13 +13,13 @@ export class CharactersOverviewComponent implements OnInit {
   public characters: Character[] = [];
   public selectedCharacter: Character;
 
-  public constructor(private heroService: CharacterService, private translate: TranslateService, private deletionChannel: CharacterDeletionChannel) {
+  public constructor(private characterService: CharacterService, private translate: TranslateService, private deletionChannel: CharacterDeletionChannel) {
   }
 
   public ngOnInit() {
     this.deletionChannel.observable().subscribe({
-      next: hero => {
-        if (!hero) {
+      next: character => {
+        if (!character) {
           this.loadData();
         }
       }
@@ -27,27 +27,30 @@ export class CharactersOverviewComponent implements OnInit {
   }
 
   private loadData() {
-    this.heroService.getCharacters().subscribe(heroes => this.characters = heroes);
+    this.characterService.getCharacters().subscribe(characters => this.characters = characters);
   }
 
-  public onSelect(hero: Character): void {
-    this.selectedCharacter = hero;
+  public onSelect(character: Character): void {
+    this.selectedCharacter = character;
   }
 
-  triggerDeletion(hero: Character) {
-    this.deletionChannel.propagate(hero);
+  triggerDeletion(character: Character) {
+    this.deletionChannel.propagate(character);
   }
 
-  public addCharacter(heroInput: HTMLInputElement) {
-    const name = heroInput.value.trim();
+  // TODO: Make this a modal with a form
+  public addCharacter(characterInput: HTMLInputElement) {
+    const name = characterInput.value.trim();
     if (name) {
-      this.heroService.addCharacter({name} as Character).subscribe({
+      this.characterService.addCharacter({name} as Character).subscribe({
         complete: () => this.loadData()
       });
     }
   }
 
-  public get viewButtonTitle(): string {
-    return this.translate.instant('heroes.overview.actions.view', {value: this.selectedCharacter.name});
+  public get buttonTitleTranslateParams() {
+    return {
+      value: this.selectedCharacter.name
+    };
   }
 }

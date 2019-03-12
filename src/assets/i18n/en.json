@@ -4,40 +4,40 @@
     "de": "German"
   },
   "header": {
-    "title": "Tour of Heroes",
+    "title": "Tour of Marvel Characters",
     "subtitle": "Welcome to the Headquarter",
     "links": {
       "dashboard": "Dashboard",
-      "heroes": "Heroes"
+      "characters": "Characters"
     }
-  },
-  "messages": {
-    "title": "Messages"
   },
   "dashboard": {
     "title": "Dashboard",
-    "search": "Hero Search"
+    "search": {
+      "title": "Character Search",
+      "placeholder": "Search for a character..."
+    }
   },
-  "heroes": {
+  "characters": {
     "details": {
-      "title": "Hero Details",
+      "title": "Character Details",
       "labels": {
         "id": "ID",
         "name": "Name"
       },
       "help": {
-        "name": "You can alter the name of a hero"
+        "name": "You can alter the name of a character"
       }
     },
     "overview": {
-      "title": "My Heroes",
+      "title": "Available Characters",
       "actions": {
         "view": "View records of '{{value}}'"
       }
     },
     "deletion": {
-      "header": "Confirm deletion of a hero",
-      "body": "Do you really want to delete the hero '{{heroName}}' with ID '{{heroId}}'?"
+      "header": "Confirm deletion of a character",
+      "body": "Do you really want to delete the character '{{name}}' with ID '{{id}}'?"
     }
   },
   "general": {

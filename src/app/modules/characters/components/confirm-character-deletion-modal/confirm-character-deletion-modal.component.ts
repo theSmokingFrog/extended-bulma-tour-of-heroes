@@ -12,12 +12,12 @@ export class ConfirmCharacterDeletionModalComponent implements OnInit {
 
   private characterToDelete: Character;
 
-  constructor(private heroService: CharacterService, private deletionChannel: CharacterDeletionChannel) {
+  constructor(private characterService: CharacterService, private deletionChannel: CharacterDeletionChannel) {
   }
 
   ngOnInit() {
     this.deletionChannel.observable().subscribe({
-      next: hero => this.resolve(hero)
+      next: character => this.resolve(character)
     });
   }
 
@@ -26,7 +26,7 @@ export class ConfirmCharacterDeletionModalComponent implements OnInit {
   }
 
   public confirm() {
-    this.heroService.deleteCharacter(this.characterToDelete).subscribe({
+    this.characterService.deleteCharacter(this.characterToDelete).subscribe({
       complete: () => this.reset()
     });
   }
@@ -37,8 +37,8 @@ export class ConfirmCharacterDeletionModalComponent implements OnInit {
 
   public get deletionTranslateParams() {
     return {
-      heroName: this.characterToDelete.name,
-      heroId:   this.characterToDelete.id
+      name: this.characterToDelete.name,
+      id:   this.characterToDelete.id
     };
   }
 }

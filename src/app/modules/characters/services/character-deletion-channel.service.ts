@@ -5,22 +5,20 @@ import { Character } from '@app/core/models';
 @Injectable()
 export class CharacterDeletionChannel {
 
-  private heroDeletionSubject: BehaviorSubject<Character> = new BehaviorSubject(null);
+  private characterDeletionSubject: BehaviorSubject<Character> = new BehaviorSubject(null);
 
   constructor() {
   }
 
   public propagate(character: Character) {
-    this.heroDeletionSubject.next(character);
+    this.characterDeletionSubject.next(character);
   }
 
   public clear() {
-    this.heroDeletionSubject.next(null);
+    this.characterDeletionSubject.next(null);
   }
 
   public observable(): Observable<Character> {
-    return this.heroDeletionSubject.asObservable();
+    return this.characterDeletionSubject.asObservable();
   }
-
-
 }

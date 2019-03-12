@@ -4,40 +4,40 @@
     "de": "Deutsch"
   },
   "header": {
-    "title": "Tour der Helden",
+    "title": "Tour der Marvel Charaktere",
     "subtitle": "Willkommen im Hauptquartier",
     "links": {
       "dashboard": "Übersicht",
-      "heroes": "Helden"
+      "characters": "Charaktere"
     }
-  },
-  "messages": {
-    "title": "Nachrichten"
   },
   "dashboard": {
     "title": "Übersicht",
-    "search": "Helden suchen"
+    "search": {
+      "title": "Charaktersuche",
+      "placeholder": "Suche hier nach einem Charakter"
+    }
   },
-  "heroes": {
+  "characters": {
     "details": {
-      "title": "Heldeneinzelheiten",
+      "title": "Charaktereinzelheiten",
       "labels": {
         "id": "ID",
         "name": "Name"
       },
       "help": {
-        "name": "Du kannst den Namen eines Helden ändern"
+        "name": "Du kannst den Namen eines Charakters ändern"
       }
     },
     "overview": {
-      "title": "Meine Helden",
+      "title": "Verfügbare Charaktere",
       "actions": {
         "view": "Unterlagen von '{{value}}' ansehen"
       }
     },
     "deletion": {
-      "header": "Löschen eines Helden bestätigen",
-      "body": "Wollen Sie den Helden '{{heroName}}' mit der ID '{{heroId}}' wirklich löschen?"
+      "header": "Löschen eines Charakters bestätigen",
+      "body": "Wollen Sie den Charakter '{{name}}' mit der ID '{{id}}' wirklich löschen?"
     }
   },
   "general": {

@@ -13,7 +13,7 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path:         'heroes',
+    path:         'characters',
     loadChildren: './modules/characters/characters.module#CharactersModule'
   }
 ];

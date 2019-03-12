@@ -1,13 +1,13 @@
-<ng-container *ngIf="heroToDelete != null">
+<ng-container *ngIf="characterToDelete != null">
     <div class="modal is-active">
         <div class="modal-background"></div>
         <!-- Animate fade in and fadeOut -->
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">{{'heroes.deletion.header'|translate}}</p>
+                <p class="modal-card-title">{{'characters.deletion.header'|translate}}</p>
             </header>
             <section class="modal-card-body">
-                <p>{{'heroes.deletion.body'|translate:deletionTranslateParams}}</p>
+                <p>{{'characters.deletion.body'|translate:deletionTranslateParams}}</p>
             </section>
             <footer class="modal-card-foot">
                 <nav class="level"

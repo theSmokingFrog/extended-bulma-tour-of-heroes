@@ -24,12 +24,12 @@ export class CharacterService {
                .pipe(tap(() => this.log(`CharacterService: Fetched Character - ID=${id}`)), map(data => data as Character));
   }
 
-  public updateCharacter(hero: Character): Observable<any> {
-    return this.http.put(`${this.URI_PREFIX}/${hero.id}`, hero).pipe(tap(() => this.log(`CharacterService: Updated Character - ID=${hero.id}`)));
+  public updateCharacter(character: Character): Observable<any> {
+    return this.http.put(`${this.URI_PREFIX}/${character.id}`, character).pipe(tap(() => this.log(`CharacterService: Updated Character - ID=${character.id}`)));
   }
 
-  public addCharacter(hero: Character): Observable<Character> {
-    return this.http.post<Character>(`${this.URI_PREFIX}`, hero)
+  public addCharacter(character: Character): Observable<Character> {
+    return this.http.post<Character>(`${this.URI_PREFIX}`, character)
                .pipe(tap((newCharacter: Character) => this.log(`CharacterService: Added Character w/ ID=${newCharacter.id}`)));
   }
 

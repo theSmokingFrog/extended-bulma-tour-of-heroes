@@ -12,13 +12,13 @@ import { ToastrService } from 'ngx-toastr';
 export class CharacterDetailComponent implements OnInit {
   public character: Character;
 
-  constructor(private route: ActivatedRoute, private heroService: CharacterService, private location: Location, private router: Router, private toastr: ToastrService) {
+  constructor(private route: ActivatedRoute, private characterService: CharacterService, private location: Location, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getCharacter(id)
-        .subscribe(hero => this.character = hero);
+    this.characterService.getCharacter(id)
+        .subscribe(character => this.character = character);
   }
 
   goBack() {
@@ -26,8 +26,8 @@ export class CharacterDetailComponent implements OnInit {
   }
 
   doSave() {
-    this.heroService.updateCharacter(this.character).subscribe({
-      complete: () => this.router.navigate(['/heroes']),
+    this.characterService.updateCharacter(this.character).subscribe({
+      complete: () => this.router.navigate(['/characters']),
       error:    err => this.toastr.error(err.message)
     });
   }

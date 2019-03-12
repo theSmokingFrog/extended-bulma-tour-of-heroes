@@ -1,10 +1,10 @@
 <section class="section">
     <div class="container">
-        <h2 class="title">{{'heroes.overview.title'|translate}}</h2>
+        <h2 class="title">{{'characters.overview.title'|translate}}</h2>
         <div class="field has-addons">
             <div class="control is-expanded">
                 <p class="control has-icons-left">
-                    <input #heroInput
+                    <input #characterInput
                            class="input"
                            type="text"
                            placeholder="Add a hero...">
@@ -13,30 +13,30 @@
             </div>
             <div class="control">
                 <a class="button"
-                   (click)="addCharacter(heroInput)">
+                   (click)="addCharacter(characterInput)">
                     {{'general.actions.add'|translate}}
                 </a>
             </div>
         </div>
         <div class="field is-grouped is-grouped-multiline">
-            <ng-container *ngFor="let hero of characters">
+            <ng-container *ngFor="let character of characters">
                 <div class="control">
                     <div class="tags are-medium has-addons">
-                        <span class="tag is-dark">{{hero.id}}</span>
+                        <span class="tag is-dark">{{character.id}}</span>
                         <a class="tag"
-                           (click)="onSelect(hero)"
-                           [class.is-primary]="selectedCharacter === hero">{{hero.name}}
+                           (click)="onSelect(character)"
+                           [class.is-primary]="selectedCharacter === character">{{character.name}}
                         </a>
                         <a class="tag is-delete"
-                           (click)="triggerDeletion(hero)"
-                           [class.is-primary]="selectedCharacter === hero"></a>
+                           (click)="triggerDeletion(character)"
+                           [class.is-primary]="selectedCharacter === character"></a>
                     </div>
                 </div>
             </ng-container>
         </div>
         <button *ngIf="selectedCharacter"
                 class="button is-primary is-outlined is-fullwidth"
-                routerLink="/heroes/{{selectedCharacter.id}}">{{viewButtonTitle}}
+                routerLink="/characters/{{selectedCharacter.id}}">{{'characters.overview.actions.view' | translate:buttonTitleTranslateParams}}
         </button>
     </div>
 </section>
