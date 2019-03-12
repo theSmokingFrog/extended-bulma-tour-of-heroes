@@ -27,7 +27,8 @@ export class CharactersOverviewComponent implements OnInit {
   }
 
   private loadData() {
-    this.characterService.getCharacters().subscribe(characters => this.characters = characters);
+    this.characterService.getCharacters()
+        .subscribe(characters => this.characters = characters as Character[]);
   }
 
   public onSelect(character: Character): void {
@@ -50,7 +51,7 @@ export class CharactersOverviewComponent implements OnInit {
 
   public get buttonTitleTranslateParams() {
     return {
-      value: this.selectedCharacter.name
+      value: this.selectedCharacter.displayname
     };
   }
 }

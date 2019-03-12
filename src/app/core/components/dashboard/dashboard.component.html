@@ -7,7 +7,7 @@
             <ng-container *ngFor="let character of topCharacters">
                 <div class="column">
                     <div class="card"
-                         routerLink="/heroes/{{character.id}}">
+                         routerLink="/characters/{{character.id}}">
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-left">
@@ -17,8 +17,8 @@
                                     </figure>
                                 </div>
                                 <div class="media-content">
-                                    <p class="title is-4">{{character.name}}</p>
-                                    <p class="subtitle is-6">@{{character.name | lowercase}}</p>
+                                    <p class="title is-4">{{character.displayname}}</p>
+                                    <p class="subtitle is-6">@{{character.twitterHandle | lowercase}}</p>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                     <div class="tags are-medium has-addons">
                         <span class="tag is-dark">{{character.id}}</span>
                         <a class="tag"
-                           routerLink="/heroes/{{character.id}}">{{character.name}}</a>
+                           routerLink="/characters/{{character.id}}">{{character.displayname}}</a>
                     </div>
                 </div>
             </ng-container>

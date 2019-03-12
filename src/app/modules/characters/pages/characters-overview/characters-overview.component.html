@@ -25,7 +25,7 @@
                         <span class="tag is-dark">{{character.id}}</span>
                         <a class="tag"
                            (click)="onSelect(character)"
-                           [class.is-primary]="selectedCharacter === character">{{character.name}}
+                           [class.is-primary]="selectedCharacter === character">{{character.displayname}}
                         </a>
                         <a class="tag is-delete"
                            (click)="triggerDeletion(character)"

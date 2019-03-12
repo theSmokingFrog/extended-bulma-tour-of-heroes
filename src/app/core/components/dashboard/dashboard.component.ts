@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.characterService.getCharacters().subscribe(chars => this.topCharacters = chars.slice(1, 5));
+    this.characterService.getCharacters().subscribe(chars => this.topCharacters = chars.slice(1, 4));
     this.character$ = this.searchTerms.pipe(debounceTime(300), distinctUntilChanged(), switchMap((term: string) => this.characterService.containsSearchByName(term)));
   }
 

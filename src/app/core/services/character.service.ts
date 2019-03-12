@@ -16,12 +16,13 @@ export class CharacterService {
   }
 
   public getCharacters(): Observable<Character[]> {
-    return this.http.get(`${this.URI_PREFIX}`).pipe(tap(() => this.log('CharacterService: Fetched Characters')), map(data => data as Character[]));
+    return this.http.get(`${this.URI_PREFIX}`)
+               .pipe(tap(() => this.log('CharacterService: Fetched Characters')), map(data => Character.prototype.fromJsonAr(data as Character[])));
   }
 
   public getCharacter(id: number): Observable<Character> {
     return this.http.get(`${this.URI_PREFIX}/${id}`)
-               .pipe(tap(() => this.log(`CharacterService: Fetched Character - ID=${id}`)), map(data => data as Character));
+               .pipe(tap(() => this.log(`CharacterService: Fetched Character - ID=${id}`)), map(data => Character.prototype.fromJson(data as Character)));
   }
 
   public updateCharacter(character: Character): Observable<any> {
@@ -40,7 +41,7 @@ export class CharacterService {
 
   public containsSearchByName(name: string): Observable<Character[]> {
     return this.http.get(`${this.URI_PREFIX}?name_like=${name}`)
-               .pipe(tap(() => this.log(`CharacterService: Searching for Characters with '${name}'`)), map(data => data as Character[]));
+               .pipe(tap(() => this.log(`CharacterService: Searching for Characters with '${name}'`)), map(data => Character.prototype.fromJsonAr(data as Character[])));
   }
 
   private log(message: string): void {
