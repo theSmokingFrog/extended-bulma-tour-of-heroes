@@ -1,73 +1,102 @@
-<h2 class="title">{{'dashboard.title'|translate}}</h2>
+<section class="section">
+    <div class="container">
+        <h2 class="title">{{'dashboard.title'|translate}}</h2>
 
-<!-- TODO: Put this in a component to get the dashboard sleeker -->
-<div class="columns">
-    <ng-container *ngFor="let hero of topHeroes">
-        <div class="column">
-            <div class="card"
-                 routerLink="/heroes/{{hero.id}}">
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                                <img src="https://randomuser.me/api/portraits/men/{{hero.id % 99}}.jpg"
-                                     alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <p class="title is-4">{{hero.name}}</p>
-                            <p class="subtitle is-6">@{{hero.name | lowercase}}</p>
+        <!-- TODO: Put this in a component to get the dashboard sleeker -->
+        <div class="columns">
+            <ng-container *ngFor="let hero of topHeroes">
+                <div class="column">
+                    <div class="card"
+                         routerLink="/heroes/{{hero.id}}">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <img src="https://randomuser.me/api/portraits/men/{{hero.id % 99}}.jpg"
+                                             alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">{{hero.name}}</p>
+                                    <p class="subtitle is-6">@{{hero.name | lowercase}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </ng-container>
         </div>
-    </ng-container>
-</div>
+    </div>
+</section>
 
-<!-- TODO: Add MetaData Hero -->
-<!--<section class="hero is-primary">
+<!-- TODO: Add MetaData Hero, Component? -->
+<section class="hero is-small is-primary">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">
-                Primary title
-            </h1>
-            <h2 class="subtitle">
-                Primary subtitle
-            </h2>
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Statistic 1</p>
+                        <p class="title">3,456</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Statistic 2</p>
+                        <p class="title">123</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Statistic 3</p>
+                        <p class="title">456K</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Statistic 4</p>
+                        <p class="title">789</p>
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
-</section>-->
+</section>
 
-<!-- TODO: Component for the search so the dashboard gets more simple -->
-<h4 class="title is-4">{{'dashboard.search'|translate}}</h4>
-<div class="field has-addons">
-    <div class="control is-expanded">
-        <p class="control has-icons-left">
-            <input #heroSearch
-                   class="input"
-                   type="text"
-                   placeholder="Search a hero..."
-                   (input)="search(heroSearch.value)">
-            <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
-        </p>
-    </div>
-    <div class="control">
-        <a class="button"
-           (click)="clearSearch(heroSearch)">
-            <span class="icon"><i class="fas fa-times"></i></span>
-        </a>
-    </div>
-</div>
-
-<div class="field is-grouped is-grouped-multiline">
-    <ng-container *ngFor="let hero of heroes$ | async">
-        <div class="control">
-            <div class="tags are-medium has-addons">
-                <span class="tag is-dark">{{hero.id}}</span>
-                <a class="tag"
-                   routerLink="/heroes/{{hero.id}}">{{hero.name}}</a>
+<section class="section">
+    <div class="container">
+        <!-- TODO: Component for the search so the dashboard gets more simple -->
+        <h4 class="title is-4">{{'dashboard.search'|translate}}</h4>
+        <div class="field has-addons">
+            <div class="control is-expanded">
+                <p class="control has-icons-left">
+                    <input #heroSearch
+                           class="input"
+                           type="text"
+                           placeholder="Search a hero..."
+                           (input)="search(heroSearch.value)">
+                    <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
+                </p>
+            </div>
+            <div class="control">
+                <a class="button"
+                   (click)="clearSearch(heroSearch)">
+                    <span class="icon"><i class="fas fa-times"></i></span>
+                </a>
             </div>
         </div>
-    </ng-container>
-</div>
+
+        <div class="field is-grouped is-grouped-multiline">
+            <ng-container *ngFor="let hero of heroes$ | async">
+                <div class="control">
+                    <div class="tags are-medium has-addons">
+                        <span class="tag is-dark">{{hero.id}}</span>
+                        <a class="tag"
+                           routerLink="/heroes/{{hero.id}}">{{hero.name}}</a>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+</section>

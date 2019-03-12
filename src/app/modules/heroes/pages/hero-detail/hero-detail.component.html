@@ -1,56 +1,60 @@
-<ng-container *ngIf="hero">
-    <h2 class="title is-5">{{'heroes.details.title'|translate}}</h2>
-    <h2 class="subtitle is-2">{{hero.name | uppercase}}</h2>
+<section class="section">
+    <div class="container">
+        <ng-container *ngIf="hero">
+            <h2 class="title is-5">{{'heroes.details.title'|translate}}</h2>
+            <h2 class="subtitle is-2">{{hero.name | uppercase}}</h2>
 
-    <nav class="level">
-        <div class="level-right">
-            <div class="level-item">
-                <div class="field">
-                    <label class="label">{{'heroes.details.labels.id'|translate}}:</label>
-                    <div class="control">
-                        <input class="input is-static"
-                               type="text"
-                               value="{{hero.id}}"
-                               readonly>
+            <nav class="level">
+                <div class="level-right">
+                    <div class="level-item">
+                        <div class="field">
+                            <label class="label">{{'heroes.details.labels.id'|translate}}:</label>
+                            <div class="control">
+                                <input class="input is-static"
+                                       type="text"
+                                       value="{{hero.id}}"
+                                       readonly>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="level-left">
-            <div class="level-item">
-                <figure class="image is-64x64">
-                    <img class="is-rounded"
-                         src="https://randomuser.me/api/portraits/men/{{hero.id % 99}}.jpg">
-                </figure>
-            </div>
-        </div>
-    </nav>
+                <div class="level-left">
+                    <div class="level-item">
+                        <figure class="image is-64x64">
+                            <img class="is-rounded"
+                                 src="https://randomuser.me/api/portraits/men/{{hero.id % 99}}.jpg">
+                        </figure>
+                    </div>
+                </div>
+            </nav>
 
-    <div class="field">
-        <label class="label">{{'heroes.details.labels.name'|translate}}:</label>
-        <div class="control">
-            <input class="input"
-                   type="text"
-                   [(ngModel)]="hero.name"
-                   placeholder="name">
-        </div>
-        <p class="help">{{'heroes.details.help.name'|translate}}!</p>
-    </div>
+            <div class="field">
+                <label class="label">{{'heroes.details.labels.name'|translate}}:</label>
+                <div class="control">
+                    <input class="input"
+                           type="text"
+                           [(ngModel)]="hero.name"
+                           placeholder="name">
+                </div>
+                <p class="help">{{'heroes.details.help.name'|translate}}!</p>
+            </div>
 
-    <div class="columns">
-        <div class="column">
-            <button class="button is-fullwidth"
-                    (click)="goBack()">
-                <span class="icon has-padding-right"><i class="fas fa-angle-double-left"></i></span>
-                {{'general.actions.back'|translate|uppercase}}
-            </button>
-        </div>
-        <div class="column">
-            <button class="button is-fullwidth"
-                    (click)="doSave()">
-                <span class="icon has-padding-right"><i class="fas fa-save"></i></span>
-                {{'general.actions.save'|translate|uppercase}}
-            </button>
-        </div>
+            <div class="columns">
+                <div class="column">
+                    <button class="button is-fullwidth"
+                            (click)="goBack()">
+                        <span class="icon has-padding-right"><i class="fas fa-angle-double-left"></i></span>
+                        {{'general.actions.back'|translate|uppercase}}
+                    </button>
+                </div>
+                <div class="column">
+                    <button class="button is-fullwidth"
+                            (click)="doSave()">
+                        <span class="icon has-padding-right"><i class="fas fa-save"></i></span>
+                        {{'general.actions.save'|translate|uppercase}}
+                    </button>
+                </div>
+            </div>
+        </ng-container>
     </div>
-</ng-container>
+</section>

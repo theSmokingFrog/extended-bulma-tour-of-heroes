@@ -1,40 +1,44 @@
-<h2 class="title">{{'heroes.overview.title'|translate}}</h2>
-<div class="field has-addons">
-    <div class="control is-expanded">
-        <p class="control has-icons-left">
-            <input #heroInput
-                   class="input"
-                   type="text"
-                   placeholder="Add a hero...">
-            <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-        </p>
-    </div>
-    <div class="control">
-        <a class="button"
-           (click)="addHero(heroInput)">
-            {{'general.actions.add'|translate}}
-        </a>
-    </div>
-</div>
-<div class="field is-grouped is-grouped-multiline">
-    <ng-container *ngFor="let hero of heroes">
-        <div class="control">
-            <div class="tags are-medium has-addons">
-                <span class="tag is-dark">{{hero.id}}</span>
-                <a class="tag"
-                   (click)="onSelect(hero)"
-                   [class.is-primary]="selectedHero === hero">{{hero.name}}
+<section class="section">
+    <div class="container">
+        <h2 class="title">{{'heroes.overview.title'|translate}}</h2>
+        <div class="field has-addons">
+            <div class="control is-expanded">
+                <p class="control has-icons-left">
+                    <input #heroInput
+                           class="input"
+                           type="text"
+                           placeholder="Add a hero...">
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </p>
+            </div>
+            <div class="control">
+                <a class="button"
+                   (click)="addHero(heroInput)">
+                    {{'general.actions.add'|translate}}
                 </a>
-                <a class="tag is-delete"
-                   (click)="triggerDeletion(hero)"
-                   [class.is-primary]="selectedHero === hero"></a>
             </div>
         </div>
-    </ng-container>
-</div>
-<button *ngIf="selectedHero"
-        class="button is-primary is-outlined is-fullwidth"
-        routerLink="/heroes/{{selectedHero.id}}">{{viewButtonTitle}}
-</button>
+        <div class="field is-grouped is-grouped-multiline">
+            <ng-container *ngFor="let hero of heroes">
+                <div class="control">
+                    <div class="tags are-medium has-addons">
+                        <span class="tag is-dark">{{hero.id}}</span>
+                        <a class="tag"
+                           (click)="onSelect(hero)"
+                           [class.is-primary]="selectedHero === hero">{{hero.name}}
+                        </a>
+                        <a class="tag is-delete"
+                           (click)="triggerDeletion(hero)"
+                           [class.is-primary]="selectedHero === hero"></a>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <button *ngIf="selectedHero"
+                class="button is-primary is-outlined is-fullwidth"
+                routerLink="/heroes/{{selectedHero.id}}">{{viewButtonTitle}}
+        </button>
+    </div>
+</section>
 
 <app-confirm-hero-deletion-modal></app-confirm-hero-deletion-modal>
