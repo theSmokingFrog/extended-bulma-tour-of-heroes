@@ -4,14 +4,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from '@app/core/components/dashboard/dashboard.component';
 import { HeaderComponent } from '@app/core/components/header/header.component';
-import { MessagesComponent } from '@app/core/components/messages/messages.component';
 import { HttpHeaderInterceptor } from '@app/core/interceptors';
 import { FooterComponent } from './components/footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 const components = [
   DashboardComponent,
-  MessagesComponent,
   HeaderComponent,
   FooterComponent
 ];
